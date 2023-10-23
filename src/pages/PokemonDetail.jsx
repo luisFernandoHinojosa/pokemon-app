@@ -19,8 +19,8 @@ export const PokemonDetail = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <main className="py-10 px-2 text-center capitalize">
-      <article className="max-w-[500px] mx-auto">
+    <main className="py-10 px-2 capitalize grid gap-20">
+      <article className="max-w-[500px] mx-auto text-center">
         <header>
           <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
         </header>
@@ -46,6 +46,21 @@ export const PokemonDetail = () => {
           </ul>
         </section>
       </article>
+      <div className="max-w-[70rem] mx-auto p-2 rounded shadow">
+        <h4 className="text-4xl pb-3">Movements</h4>
+        <ul className="grid grid-cols-4 gap-6">
+          {
+            pokemon?.moves.slice(0,25).map((move) =>
+              <li key={move.move.name} className="text-center">
+                <spam className="bg-slate-400 text-xl rounded-xl px-3 py-2">
+                    {move.move.name}
+                </spam>
+              </li>
+            )
+          }
+         </ul>
+      </div>
+      
     </main>
   )
 }
