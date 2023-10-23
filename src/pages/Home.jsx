@@ -12,26 +12,35 @@ export const Home = () => {
     navigate("/pokedex");
   };
   return (
-    <main className="bg-slate-100 h-screen grid place-content-center">
-      <section className="">
+    <main className="bg-slate-100 h-screen flex flex-col">
+      <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>
             <img src="/images/logo.png" alt="" />
           </div>
-          <h3>Hello Trainer!</h3>
-          <p>To start give me you name</p>
-            <form onSubmit={handleSubmi} className=" h-full relative">
-              <input
-                className="h-full"
-                name="trainerName"
-                type="text"
-                placeholder="Your name"
-              />
-              <button className="bg-red-500 px-7 h-full ">Start!</button>
-            </form>
+          <div>
+            <h3 className="text-[2rem] text-red-500 font-bold">
+              Hello Trainer!
+            </h3>
+            <p className="font-semibold">To start, give me your name</p>
+          </div>
+          <form
+            onSubmit={handleSubmi}
+            className=" h-8 relative bg-black flex overflow-hidden"
+          >
+            <input
+              className="h-auto w-full outline-none"
+              name="trainerName"
+              type="text"
+              placeholder="Your name"
+            />
+            <button className="bg-red-500 px-7 h-full ">Start!</button>
+          </form>
         </div>
       </section>
-      <footer></footer>
+      <footer className=" bg-purple-500">
+        {/* <img className="w-full h-auto" src="/images/logo-barra.png" alt="" /> */}
+      </footer>
     </main>
   );
 };

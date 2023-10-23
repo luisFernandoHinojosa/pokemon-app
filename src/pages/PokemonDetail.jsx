@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 export const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState(null)
   const {pokemonId} = useParams()
+  console.log("movee",pokemon?.moves[0].move.name)
 
   const getPokemonStat = (statValue)=>{
     const MAX_STAAT_VALUE =255
@@ -46,6 +47,18 @@ export const PokemonDetail = () => {
           </ul>
         </section>
       </article>
+      <ul>
+        {
+          pokemon?.moves.map((move)=>
+          <li key={move.move.name}>
+            <div>
+              {move.move.name}
+            </div>
+          </li>
+          )
+        }
+      </ul>
+
     </main>
   )
 }

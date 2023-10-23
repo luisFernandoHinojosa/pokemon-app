@@ -10,11 +10,10 @@ export const Pokedex = () => {
   const [currentType, setCurrentType] = useState("");
   const trainerName = useSelector((store) => store.trainerName);
 
-
   const pokemonByName = pokemons.filter((pokemon) =>
     pokemon.name.includes(pokemonName)
   );
-  
+
   useEffect(() => {
     if (currentType === "") {
       axios
@@ -44,7 +43,6 @@ export const Pokedex = () => {
     }
   }, [currentType]);
 
-
   console.log(pokemonByName);
 
   const handleSubmit = (e) => {
@@ -57,19 +55,24 @@ export const Pokedex = () => {
   };
 
   return (
-    <main>
-      <section>
-        <p>
-          <span>Welcome {trainerName}</span>, here can you find your favorite
+    <main className="bg-slate-100">
+      <div className="">
+        <img className="w-full" src="/images/logo-barra2.png" alt="" />
+      </div>
+
+      <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2">
+        <p className="text-lg">
+          <span className="text-red-500 font-bold">Welcome {trainerName},</span> here can you find your favorite
           pokemon
         </p>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input name="pokemonName" type="text" />
-            <button>Search</button>
+
+        <form onSubmit={handleSubmit} className="flex gap-3 w-full">
+          <div className="flex w-[70%] bg-green-900">
+            <input className="w-full outline-none" name="pokemonName" type="text" autoComplete="off" />
+            <button className="px-6 py-2 bg-red-500">Search</button>
           </div>
 
-          <select onChange={handleChangeType} className="capitalize">
+          <select onChange={handleChangeType} className="capitalize w-[30%]">
             <option value="">All pokemon</option>
             {types.map((type) => (
               <option value={type.name} key={type.url}>
@@ -79,6 +82,7 @@ export const Pokedex = () => {
           </select>
         </form>
       </section>
+
       <PokemonList pokemons={pokemonByName} />
     </main>
   );
