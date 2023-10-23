@@ -10,13 +10,12 @@ export const PokemonCard = ({ pokemonUrl }) => {
       .then(({ data }) => setPokemon(data))
       .catch((err) => console.log(err));
   }, []);
-  console.log("pokemon", pokemon);
   return (
     <Link
       to={`/pokedex/${pokemon?.id}`}
-      className="capitalize bg-purple-200 relative p-3"
+      className="capitalize bg-purple-200 relative p-3 rounded-lg"
     >
-      <header>
+      <header className="h-[30%]">
         <div className="">
           <img
             className=""
@@ -25,22 +24,24 @@ export const PokemonCard = ({ pokemonUrl }) => {
           />
         </div>
       </header>
-      <div className="text-center p-3 bg-white">
-          <h3>{pokemon?.name}</h3>
-          <span>
+      <div className="text-center p-3 bg-white h-[70%] rounded-lg">
+        <div className="relative translate-y-[45%] grid gap-2 ">
+          <h3  className="text-3xl font-bold">{pokemon?.name}</h3>
+          <span className="font-semibold">
             {pokemon?.types.map((type) => type.type.name).join(" / ")}
           </span>
           <h5>Type</h5>
           <hr />
-          <ul className="grid grid-cols-2">
+          <ul className="grid grid-cols-2 gap-4">
             {pokemon?.stats.slice(0, 4).map((stat) => (
-              <li key={stat.stat.name}>
+              <li key={stat.stat.name} className="">
                 <h6>{stat.stat.name}</h6>
                 <span>{stat.base_stat}</span>
               </li>
             ))}
           </ul>
         </div>
+      </div>
     </Link>
   );
 };

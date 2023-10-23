@@ -26,7 +26,7 @@ export const Home = () => {
           </div>
           <form
             onSubmit={handleSubmi}
-            className=" h-8 relative bg-black flex overflow-hidden"
+            className=" h-10 relative bg-black flex overflow-hidden"
           >
             <input
               className="h-auto w-full outline-none"
@@ -39,7 +39,7 @@ export const Home = () => {
         </div>
       </section>
       <footer className=" bg-purple-500">
-        {/* <img className="w-full h-auto" src="/images/logo-barra.png" alt="" /> */}
+        <img className="w-full min-h-[100px] max-h-[120px]" src="/images/logo-barra.png" alt="" />
       </footer>
     </main>
   );
