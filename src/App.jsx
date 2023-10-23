@@ -6,8 +6,10 @@ import { PokemonDetail } from "./pages/PokemonDetail";
 import { PrivateRoutes } from "./components/PrivateRoutes";
 
 function App() {
+
   return (
     <div>
+       
       <Routes>
         
           <Route path="/" element={<Home />}/>
