@@ -1,0 +1,50 @@
+const bgType={
+    normal : "bg-gradient-to-t from-pink-600 to-pink-900",
+    fighting :"bg-gradient-to-t from-red-600 to-red-900",
+    flying:"bg-gradient-to-t from-pink-400 to-pink-900",
+    poison:"bg-gradient-to-t from-purple-400 to-purple-800",
+    ground:"bg-gradient-to-t from-yellow-500 to-yellow-800",
+    rock:"bg-gradient-to-t from-zinc-400 to-zinc-500",
+    bug:"bg-gradient-to-t from-lime-300 to-lime-600",
+    ghost:"bg-gradient-to-t from-indigo-600 to-indigo-900",
+    steel:"bg-gradient-to-t from-gray-500 to-gray-900",
+    fire:"bg-gradient-to-t from-orange-400 to-orange-700",
+    water:"bg-gradient-to-t from-sky-500 to-blue-700",
+    grass:"bg-gradient-to-t from-yellow-100 to-green-600",
+    electric:"bg-gradient-to-t from-[#fbff00] to-yellow-400",
+    psychic:"bg-gradient-to-t from-green-200 to-slate-500",
+    ice:"bg-gradient-to-t from-cyan-200 to-cyan-500",
+    dragon:"bg-gradient-to-t from-blue-500 to-sky-950",
+    dark:"bg-gradient-to-t from-stone-600 to-stone-950",
+    fairy:"bg-gradient-to-t from-pink-300 to-pink-600",
+    unknown:"bg-gradient-to-t from-pink-800 to-pink-900",
+    shadow:"bg-gradient-to-t from-pink-800 to-pink-900",
+}
+
+const bgBorderType={
+  normal : "border-pink-900",
+    fighting :"border-red-800",
+    flying:"border-pink-900",
+    poison:"border-purple-900",
+    ground:"border-yellow-800",
+    rock:"border-zinc-500",
+    bug:"border-lime-500",
+    ghost:"border-indigo-900",
+    steel:"border-gray-800",
+    fire:"border-orange-600",
+    water:"border-blue-600",
+    grass:"border-green-600",
+    electric:"border-yellow-400",
+    psychic:"border-slate-500",
+    ice:"border-cyan-500",
+    dragon:"border-sky-900",
+    dark:"border-stone-900",
+    fairy:"border-pink-600",
+    unknown:"bg-gradient-to-t from-pink-800 to-pink-900",
+    shadow:"bg-gradient-to-t from-pink-800 to-pink-900",
+}
+
+export{
+  bgType,
+  bgBorderType
+}
