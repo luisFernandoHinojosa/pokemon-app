@@ -55,7 +55,7 @@ export const Pokedex = () => {
   };
 
   return (
-    <main className="bg-slate-100 h-full">
+    <main className="bg-slate-100 h-full dark:bg-black">
       <div className="">
         <img className="w-full min-h-[150px] max-h-[150px]" src="/images/logo-barra2.png" alt="" />
         <img className="absolute left-3 top-6  md:top-2 md:left-[10rem] w-[20rem] md:w-auto" src="/images/pokedex-logo.png" alt="" />

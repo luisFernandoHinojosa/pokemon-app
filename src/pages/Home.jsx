@@ -2,17 +2,29 @@ import { useDispatch } from "react-redux";
 import { setTrainerName } from "../store/slices/trainerName.slice";
 import { useNavigate } from "react-router-dom";
 
+import { useEffect, useState } from "react";
+
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [themeMode, setThemeMode] = useState("light")
+  
   const handleSubmi = (e) => {
     e.preventDefault();
     dispatch(setTrainerName(e.target.trainerName.value));
     navigate("/pokedex");
   };
+  
+  useEffect(() => {
+    
+  }, [themeMode])
+  
+  const handleChangeTheme = () =>{
+    document.querySelector('html').classList.toggle('dark')
+  }
   return (
-    <main className="bg-slate-100 h-screen flex flex-col">
+    <main className="bg-slate-100 h-screen flex flex-col dark:bg-black">
+     <button onClick={handleChangeTheme}>click</button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>

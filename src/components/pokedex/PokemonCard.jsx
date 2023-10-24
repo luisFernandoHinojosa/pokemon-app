@@ -13,16 +13,14 @@ export const PokemonCard = ({ pokemonUrl }) => {
   return (
     <Link
       to={`/pokedex/${pokemon?.id}`}
-      className="capitalize bg-purple-200 relative p-3 rounded-lg"
+      className="capitalize bg-purple-200 p-3 rounded-lg"
     >
-      <header className="h-[30%]">
-        <div className="">
+      <header className="h-[30%] ">
           <img
             className=""
             src={pokemon?.sprites.other["official-artwork"].front_default}
             alt=""
           />
-        </div>
       </header>
       <div className="text-center p-3 bg-white h-[70%] rounded-lg">
         <div className="relative translate-y-[45%] grid gap-2 ">
