@@ -71,13 +71,8 @@ export const Pokedex = () => {
       <span><IconSettings/></span>
       <span>Settings</span>
         </Link>
-<<<<<<< HEAD
       <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2 mt-11">
         <p className="text-lg dark:text-white">
-=======
-      <section className="grid mx-auto mb-9  px-4 gap-5 mt-16 md:max-w-[610px] lg:max-w-[900px] xl:max-w-[1200px] text-">
-        <p className="text-lg">
->>>>>>> 1191d527cd1f446b503367eca9b736990ed0bcd3
           <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
           pokemon
         </p>
