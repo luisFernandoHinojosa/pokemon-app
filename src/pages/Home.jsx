@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- // const [themeMode, setThemeMode] = useState("light")
+  const [themeMode, setThemeMode] = useState("light")
   
   const handleSubmi = (e) => {
     e.preventDefault();
@@ -19,12 +19,12 @@ export const Home = () => {
     
   }, [themeMode])
   
-  /*const handleChangeTheme = () =>{
+  const handleChangeTheme = () =>{
     document.querySelector('html').classList.toggle('dark')
-  }*/
+  }
   return (
     <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-black">
-     <button onClick={handleChangeTheme}>click</button>
+     <button onClick={handleChangeTheme} className="absolute">click</button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>

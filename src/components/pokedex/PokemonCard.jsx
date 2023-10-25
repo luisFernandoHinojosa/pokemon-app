@@ -17,7 +17,6 @@ export const PokemonCard = ({ pokemonUrl }) => {
     <Link
       to={`/pokedex/${pokemon?.id}`}
       className={`capitalize text-center rounded-lg border-8 ${bgBorderType[pokemon?.types[0].type.name]}`}
-      className="capitalize bg-purple-200 p-3 rounded-lg"
     >
       <header className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}></header>
       <div className="relative pt-14 bg-w">

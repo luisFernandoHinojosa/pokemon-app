@@ -58,30 +58,6 @@ export const PokemonDetail = () => {
                   </div>
                 </div>
               </div>
-    <main className="py-10 px-2 capitalize grid gap-20 bg-green-200">
-      <article className="w-full max-w-[700px] mx-auto    text-center bg-red-500 p-2 mt-[10rem]">
-        <header className="grid justify-center h-[15%] bg-black">
-          <img className="w-[290px] relative -translate-y-1/2"
-            src={pokemon?.sprites.other["official-artwork"].front_default}
-            alt=""
-          />
-        </header>
-        <article className="bg-white h-[85%]">
-          <section>
-            <h3 className="text-[2rem] font-bold text-emerald-800 pt-2 " >#{pokemon?.id}</h3>
-            <h2 className="text-[2rem] font-bold text-emerald-800 pt-2">Nombre {pokemon?.name}</h2>
-            <div className="w-full pt-2 pb-2 text-[0.7rem] justify-center  px-[10rem]">
-              <div className="grid grid-cols-2  max-w-xl px-5 font-bold">
-              <div>
-                <h5>Peso</h5>
-                <span className="">{pokemon?.weight}</span>
-              </div>
-              <div>
-                <h5>Altura</h5>
-                <span>{pokemon?.height}</span>
-              </div>
-              </div>
-            </div>
 
               {/* tipo y habilidades */}
               <div className="flex justify-between gap-5">
