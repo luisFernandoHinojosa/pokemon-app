@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PokemonList } from "../components/pokedex/PokemonList";
 import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
+import { Link } from "react-router-dom";
+import { IconSettings } from "@tabler/icons-react";
 //import { paginateData } from "../utils/pagination2"
 
 export const Pokedex = () => {
@@ -15,6 +17,7 @@ export const Pokedex = () => {
   // const {itemsInCurrentPage,
   //   pagesInCurrentBlock,
   //   lastPage,} =paginateData(pokemons, currentPage)
+  console.log("currentType",currentType)
 
   const pokemonByName = pokemons.filter((pokemon) =>
     pokemon.name.includes(pokemonName)
@@ -57,26 +60,30 @@ export const Pokedex = () => {
   };
 
   const handleChangeType = (e) => {
+    console.log("value type", e.target.value)
     setCurrentType(e.target.value);
   };
 
   return (
-    <main className="bg-slate-100 h-full">
+    <main className="min-h-screen">
       <HeaderPokeball/>
-
-      <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2">
+      <Link className="hover:text-red-500 absolute p-2 flex" to={"/config"}>
+      <span><IconSettings/></span>
+      <span>Settings</span>
+        </Link>
+      <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2 mt-11">
         <p className="text-lg">
-          <span className="text-red-500 font-bold">Welcome {trainerName},</span> here can you find your favorite
+          <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
           pokemon
         </p>
 
         <form onSubmit={handleSubmit} className="flex gap-3 w-full">
           <div className="flex w-[70%] bg-green-900">
-            <input className="w-full outline-none" name="pokemonName" type="text" autoComplete="off" />
+            <input className="w-full outline-none border-2 border-red-500" name="pokemonName" type="text" autoComplete="off" placeholder="Search pokemon by name" />
             <button className="px-6 py-2 bg-red-500">Search</button>
           </div>
 
-          <select onChange={handleChangeType} className="capitalize w-[30%]">
+          <select onChange={handleChangeType} className="capitalize w-[30%] border-2 border-red-600 outline-none">
             <option value="">All pokemon</option>
             {types.map((type) => (
               <option value={type.name} key={type.url}>
@@ -86,8 +93,12 @@ export const Pokedex = () => {
           </select>
         </form>
       </section>
-
-      <PokemonList pokemons={pokemonByName} />
+      {
+        pokemons.length ===0?(<div className="text-center
+        text-2xl text-red-700">
+          <span>Sorry there are no pokemons of these types</span>
+        </div>):(<PokemonList pokemons={pokemonByName} />)
+      }
     </main>
   );
 };

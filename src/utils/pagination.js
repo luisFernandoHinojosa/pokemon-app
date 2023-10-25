@@ -1,4 +1,4 @@
-export const pagination = (currentPage, pokemons) => {
+export const pagination = (currentPage, pokemons, pokemonsPerPage) => {
   const pages = []
   if(pokemons.length === 0){
     return{
@@ -7,7 +7,7 @@ export const pagination = (currentPage, pokemons) => {
     }
   }
   
-  const POKEMONS_PER_PAGE = 18
+  const POKEMONS_PER_PAGE = pokemonsPerPage
 
   //cantidad total de paginas
   const totalPages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE)
