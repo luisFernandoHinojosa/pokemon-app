@@ -18,8 +18,10 @@ export const PokemonCard = ({ pokemonUrl }) => {
       to={`/pokedex/${pokemon?.id}`}
       className={`capitalize text-center rounded-lg border-8 ${bgBorderType[pokemon?.types[0].type.name]}`}
     >
-      <header className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}></header>
-      <div className="relative pt-14 bg-w">
+      <header className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}>
+
+      </header>
+      <div className="relative pt-14 bg-w dark:bg-slate-200">
         <div className="absolute w-full top-0 -translate-y-2/3">
           <img
             className="max-w-[180px] mx-auto block"

@@ -61,11 +61,11 @@ export const Pokedex = () => {
   };
 
   return (
-    <main className="bg-slate-100 h-full dark:bg-black">
+    <main className="bg-slate-100 h-full dark:bg-gray-800">
       <HeaderPokeball/>
 
       <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2">
-        <p className="text-lg">
+        <p className="text-lg dark:text-white">
           <span className="text-red-500 font-bold">Welcome {trainerName},</span> here can you find your favorite
           pokemon
         </p>

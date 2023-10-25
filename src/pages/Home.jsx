@@ -23,8 +23,10 @@ export const Home = () => {
     document.querySelector('html').classList.toggle('dark')
   }
   return (
-    <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-black">
-     <button onClick={handleChangeTheme} className="absolute">click</button>
+    <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-gray-800">
+     <button onClick={handleChangeTheme} className="absolute top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-500 rounded-md px-5 dark:bg-slate-200 text-slate-50 dark:text-slate-900">Dia
+            <i className="fa-light fa-sun-bright"></i>
+     </button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>
@@ -34,7 +36,7 @@ export const Home = () => {
             <h3 className="text-[2rem] text-red-500 font-bold">
               Hello Trainer!
             </h3>
-            <p className="font-semibold">To start, give me your name</p>
+            <p className="font-semibold dark:text-slate-200">To start, give me your name</p>
           </div>
           <form
             onSubmit={handleSubmi}
