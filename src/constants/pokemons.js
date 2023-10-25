@@ -44,7 +44,31 @@ const bgBorderType={
     shadow:"bg-gradient-to-t from-pink-800 to-pink-900",
 }
 
+const textColorType={
+  normal : "text-pink-900",
+    fighting :"text-red-800",
+    flying:"bordtextk-900",
+    poison:"text-purple-900",
+    ground:"text-yellow-800",
+    rock:"text-zinc-500",
+    bug:"text-lime-500",
+    ghost:"text-indigo-900",
+    steel:"text-gray-800",
+    fire:"text-orange-600",
+    water:"text-blue-600",
+    grass:"text-green-600",
+    electric:"text-yellow-400",
+    psychic:"text-slate-500",
+    ice:"text-cyan-500",
+    dragon:"text-sky-900",
+    dark:"text-stone-900",
+    fairy:"text-pink-600",
+    unknown:"text-slate-800",
+    shadow:"text-gray-800",
+}
+
 export{
   bgType,
-  bgBorderType
+  bgBorderType,
+  textColorType,
 }
