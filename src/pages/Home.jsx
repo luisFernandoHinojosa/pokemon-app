@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [themeMode, setThemeMode] = useState("light")
+ // const [themeMode, setThemeMode] = useState("light")
   
   const handleSubmi = (e) => {
     e.preventDefault();
@@ -19,11 +19,11 @@ export const Home = () => {
     
   }, [themeMode])
   
-  const handleChangeTheme = () =>{
+  /*const handleChangeTheme = () =>{
     document.querySelector('html').classList.toggle('dark')
-  }
+  }*/
   return (
-    <main className="bg-slate-100 h-screen flex flex-col dark:bg-black">
+    <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-black">
      <button onClick={handleChangeTheme}>click</button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
@@ -50,8 +50,15 @@ export const Home = () => {
           </form>
         </div>
       </section>
-      <footer className=" bg-purple-500">
-        <img className="w-full min-h-[100px] max-h-[120px]" src="/images/logo-barra.png" alt="" />
+      <footer>
+        <div className="bg-red-600 h-16"></div>
+        <div className="bg-black h-12 relative">
+          <div className="h-12 w-12 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-content-center">
+            <div className="w-10 h-10 rounded-full bg-white border-[6px] border-black ">
+
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
   );

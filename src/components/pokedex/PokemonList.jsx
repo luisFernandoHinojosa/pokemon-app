@@ -4,7 +4,7 @@ import { pagination } from "../../utils/pagination";
 import { ButtonsToShow } from "../../utils/ButtonsToShow";
 
 export const PokemonList = ({ pokemons }) => {
-  //console.log("pokemons", pokemons);
+  console.log("pokemons", pokemons);
   const [currentPage, setCurrentPage] = useState(1);
   const { pokemonsInPage, pages, pageStart, pageEnd } = pagination(
     currentPage,

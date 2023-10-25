@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PokemonList } from "../components/pokedex/PokemonList";
+import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
+//import { paginateData } from "../utils/pagination2"
 
 export const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -9,6 +11,10 @@ export const Pokedex = () => {
   const [types, setTypes] = useState([]);
   const [currentType, setCurrentType] = useState("");
   const trainerName = useSelector((store) => store.trainerName);
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const {itemsInCurrentPage,
+  //   pagesInCurrentBlock,
+  //   lastPage,} =paginateData(pokemons, currentPage)
 
   const pokemonByName = pokemons.filter((pokemon) =>
     pokemon.name.includes(pokemonName)
@@ -17,7 +23,7 @@ export const Pokedex = () => {
   useEffect(() => {
     if (currentType === "") {
       axios
-        .get("https://pokeapi.co/api/v2/pokemon")
+        .get("https://pokeapi.co/api/v2/pokemon?limit=1292")
         .then(({ data }) => setPokemons(data.results))
         .catch((err) => console.log(err));
     }
@@ -56,10 +62,7 @@ export const Pokedex = () => {
 
   return (
     <main className="bg-slate-100 h-full dark:bg-black">
-      <div className="">
-        <img className="w-full min-h-[150px] max-h-[150px]" src="/images/logo-barra2.png" alt="" />
-        <img className="absolute left-3 top-6  md:top-2 md:left-[10rem] w-[20rem] md:w-auto" src="/images/pokedex-logo.png" alt="" />
-      </div>
+      <HeaderPokeball/>
 
       <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2">
         <p className="text-lg">

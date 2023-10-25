@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
+import { bgType } from "../constants/pokemons";
 
 export const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState(null);
@@ -20,6 +22,42 @@ export const PokemonDetail = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
+    <main className="capitalize grid gap-20">
+      <HeaderPokeball />
+      <article className="mx-2 grid gap-11 mt-16">
+        <article className="relative w-full max-w-[700px] mx-auto text-center rounded-lg border-4 border-slate-200  ">
+          <header
+            className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}
+          >
+            {" "}
+          </header>
+          <div className="absolute w-full top-0 -translate-y-1/2">
+            <img
+              src={pokemon?.sprites.other["official-artwork"].front_default}
+              alt=""
+              className="max-w-[250px] mx-auto"
+            />
+          </div>
+          <article className="bg-white px-11 pb-10 pt-5">
+            <section className="mb-11 grid gap-6">
+              <div className="flex flex-col gap-3">
+                <spam className="w-9 border-2 p-1 mx-auto text-xl font-bold">
+                  #{pokemon?.id}
+                </spam>
+                <h2 className="text-[2rem] font-bold text-green-800">
+                  {pokemon?.name}
+                </h2>
+                <div className="flex pt-4 justify-center gap-16">
+                  <div className="">
+                    <h5 className="font-semibold">Peso</h5>
+                    <span className="text-xl font-bold">{pokemon?.weight}</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Altura</h5>
+                    <span className="text-xl font-bold">{pokemon?.height}</span>
+                  </div>
+                </div>
+              </div>
     <main className="py-10 px-2 capitalize grid gap-20 bg-green-200">
       <article className="w-full max-w-[700px] mx-auto    text-center bg-red-500 p-2 mt-[10rem]">
         <header className="grid justify-center h-[15%] bg-black">
@@ -45,63 +83,81 @@ export const PokemonDetail = () => {
               </div>
             </div>
 
-            {/* tipo y habilidades */}
-            <div className="grid grid-cols-2 bg-orange-600 gap-5 ">
-              <div>
-                <h3 className="text-xl">Tipo</h3>
-                <div className="bg-green-500 grid gap-3 md:justify-between md:grid-cols-2">
-                  <span className="bg-blue-500">{pokemon?.types[0].type.name}</span>
-                  {pokemon?.types.length > 1 && (
-                    <span>{pokemon?.types[1].type.name}</span>
-                  )}
+              {/* tipo y habilidades */}
+              <div className="flex justify-between gap-5">
+                <div className="w-[50%] grid gap-3">
+                  <h3 className="text-xl font-bold">Tipo</h3>
+                  <div className="flex gap-5 justify-center w-full flex-wrap sm:flex-nowrap items-center text-white font-semibold">
+                    <span
+                      className={`w-full sm:w-[50%] border-2 p-1 ${
+                        bgType[pokemon?.types[0].type.name]
+                      }`}
+                    >
+                      {pokemon?.types[0].type.name}
+                    </span>
+                    {pokemon?.types.length > 1 && (
+                      <span
+                        className={`w-full sm:w-[50%] border-2 p-1 ${
+                          bgType[pokemon?.types[1].type.name]
+                        }`}
+                      >
+                        {pokemon?.types[1].type.name}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <h3 className="text-xl">Habilidades</h3>
-                <div className="bg-green-500 grid md:justify-between md:grid-cols-2">
-                  <span>{pokemon?.abilities[0].ability.name}</span>
-                  <span>{pokemon?.abilities[1].ability.name}</span>
+                <div className="w-[50%] grid gap-3 ">
+                  <h3 className="text-xl font-bold">Habilidades</h3>
+                  <div className="grid md:justify-between md:grid-cols-2 gap-5 font-semibold">
+                    <span className="border-2 p-1">
+                      {pokemon?.abilities[0].ability.name}
+                    </span>
+                    <span className="border-2 p-1">
+                      {pokemon?.abilities[1].ability.name}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-          {/* stast */}
-          <section>
-            <h3 className="text-start">Stats</h3>
-            <ul className="grid gap-4">
-              {pokemon?.stats.map((stat) => (
-                <li className="capitalize" key={stat.stat.name}>
-                  <div className="flex justify-between items-center">
-                    <h5>{stat.stat.name}</h5>
-                    <span>{stat.base_stat}/255</span>
-                  </div>
-                  {/* totalBar */}
-                  <div className="bg-slate-300 h-6 rounded-md overflow-hidden">
-                    <div
-                      style={{ width: getPokemonStat(stat.base_stat) }}
-                      className="bg-gradient-to-l to-orange-300 from-orange-500 h-full rounded-md"
-                    ></div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
+            </section>
+            {/* stast */}
+            <section>
+              <h3 className="text-[2rem] text-start font-semibold">Stats</h3>
+              <ul className="grid gap-4">
+                {pokemon?.stats.map((stat) => (
+                  <li className="capitalize font-semibold" key={stat.stat.name}>
+                    <div className="flex justify-between items-center">
+                      <h5>{stat.stat.name}</h5>
+                      <span>{stat.base_stat}/255</span>
+                    </div>
+                    {/* totalBar */}
+                    <div className="bg-slate-300 h-6 rounded-md overflow-hidden">
+                      <div
+                        style={{ width: getPokemonStat(stat.base_stat) }}
+                        className="bg-gradient-to-l to-orange-300 from-orange-500 h-full rounded-md"
+                      ></div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </article>
         </article>
+
+        <div className="max-w-[700px] mx-auto rounded-lg px-7 py-5 mb-10 border-4 border-slate-200">
+          <h4 className="text-4xl pb-3">Movements</h4>
+          <hr />
+          <ul className="flex  flex-row flex-wrap   gap-6 p-3">
+            {pokemon?.moves.slice(0, 25).map((move) => (
+              <li key={move.move.name} className="">
+                <spam className="bg-slate-200 text-xl rounded-xl px-3 py-2">
+                  {move.move.name}
+                </spam>
+              </li>
+            ))}
+          </ul>
+        </div>
       </article>
-      <div className="max-w-[700px] mx-auto rounded-lg shadow px-7 py-5">
-        <h4 className="text-4xl pb-3">Movements</h4>
-        <hr />
-        <ul className="flex  flex-row flex-wrap   gap-6 p-3">
-          {pokemon?.moves.slice(0, 25).map((move) => (
-            <li key={move.move.name} className="">
-              <spam className="bg-slate-200 text-xl rounded-xl px-3 py-2">
-                {move.move.name}
-              </spam>
-            </li>
-          ))}
-        </ul>
-      </div>
     </main>
   );
 };
