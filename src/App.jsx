@@ -7,10 +7,14 @@ import { PrivateRoutes } from "./components/PrivateRoutes";
 import { Config } from "./pages/Config";
 
 function App() {
-  return (   
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
+  
+  
+  return (
+    <div>
+       
+      <Routes>
+        
+          <Route path="/" element={<Home/>}/>
 
           <Route element={<PrivateRoutes />}>
             <Route path="/pokedex" element={<Pokedex />} />

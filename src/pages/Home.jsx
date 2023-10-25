@@ -15,8 +15,16 @@ export const Home = () => {
       ? (dispatch(setTrainerName(trainerName)), navigate("/pokedex"))
       : setErrorMessage("Invalid name! Please, your name must contain more than 4 digits");
   };
+  
+  useEffect(() => {
+    
+  }, [themeMode])
+  
+  const handleChangeTheme = () =>{
+    document.querySelector('html').classList.toggle('dark')
+  }
   return (
-    <main className="min-h-screen grid grid-rows-[1fr_auto]">
+    <main className="h-screen grid grid-rows-[1fr_auto]">
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>

@@ -65,7 +65,7 @@ export const Pokedex = () => {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen dark:bg-black">
       <HeaderPokeball/>
       <Link className="hover:text-red-500 absolute p-2 flex" to={"/config"}>
       <span><IconSettings/></span>
