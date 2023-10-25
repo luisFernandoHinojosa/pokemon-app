@@ -67,23 +67,23 @@ export const Pokedex = () => {
   return (
     <main className="min-h-screen dark:bg-black">
       <HeaderPokeball/>
-      <Link className="hover:text-red-500 absolute p-2 flex" to={"/config"}>
+      <Link className="hover:text-red-500 absolute px-2 py-1 flex font-bold border-2 left-2 translate-y-[20%] rounded-xl  " to={"/config"}>
       <span><IconSettings/></span>
       <span>Settings</span>
         </Link>
-      <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2 mt-11">
+      <section className="grid mx-auto mb-9  px-4 gap-5 mt-16 md:max-w-[610px] lg:max-w-[900px] xl:max-w-[1200px] text-">
         <p className="text-lg">
           <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
           pokemon
         </p>
 
-        <form onSubmit={handleSubmit} className="flex gap-3 w-full">
+        <form onSubmit={handleSubmit} className="flex gap-3">
           <div className="flex w-[70%] bg-green-900">
             <input className="w-full outline-none border-2 border-red-500" name="pokemonName" type="text" autoComplete="off" placeholder="Search pokemon by name" />
             <button className="px-6 py-2 bg-red-500">Search</button>
           </div>
 
-          <select onChange={handleChangeType} className="capitalize w-[30%] border-2 border-red-600 outline-none">
+          <select onChange={handleChangeType} className="w-[30%] capitalize border-2 border-red-600 outline-none">
             <option value="">All pokemon</option>
             {types.map((type) => (
               <option value={type.name} key={type.url}>
