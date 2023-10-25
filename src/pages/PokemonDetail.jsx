@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
-import { bgType } from "../constants/pokemons";
+import { bgType, bgBorderType, textColorType } from "../constants/pokemons";
 
 export const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState(null);
@@ -25,7 +25,7 @@ export const PokemonDetail = () => {
     <main className="capitalize grid gap-20 dark:bg-gray-800 dark:text-white">
       <HeaderPokeball />
       <article className="mx-2 grid gap-11 mt-16">
-        <article className="relative w-full max-w-[700px] mx-auto text-center rounded-lg border-4 border-slate-200 ">
+        <article className={`relative w-full max-w-[700px] mx-auto text-center rounded-lg border-8 ${bgBorderType[pokemon?.types[0].type.name]}`}>
           <header
             className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}
           >
@@ -120,13 +120,13 @@ export const PokemonDetail = () => {
           </article>
         </article>
 
-        <div className="max-w-[700px] mx-auto rounded-lg px-7 py-5 mb-10 border-4 border-slate-200 dark:bg-slate-400 opacity-80 dark:text-black">
+        <div className="max-w-[700px] mx-auto rounded-lg px-7 py-5 mb-10 border-4 border-slate-200">
           <h4 className="text-4xl pb-3">Movements</h4>
           <hr />
           <ul className="flex  flex-row flex-wrap   gap-6 p-3">
             {pokemon?.moves.slice(0, 25).map((move) => (
               <li key={move.move.name} className="">
-                <spam className="bg-slate-200 text-xl rounded-xl px-3 py-2">
+                <spam className={` border-2 text-xl rounded-xl px-3 py-2 ${textColorType[pokemon?.types[0].type.name]}`}>
                   {move.move.name}
                 </spam>
               </li>

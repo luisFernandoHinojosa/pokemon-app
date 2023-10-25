@@ -1,6 +1,8 @@
+
+
 export const HeaderPokeball = () => {
   return (
-    <header>
+    <header className="bg-green-500 w-full">
       <div className="bg-red-600 h-16">
         <div className="h-full pl-4">
           <img
@@ -11,8 +13,8 @@ export const HeaderPokeball = () => {
         </div>
       </div>
       <div className="bg-black h-12 relative">
-        <div className="h-12 w-12 bg-white rounded-full absolute right-0 -translate-x-1/2 -translate-y-1/2 grid place-content-center">
-          <div className="w-10 h-10 rounded-full bg-white border-[6px] border-black "></div>
+        <div className="h-14 w-14 bg-black rounded-full absolute right-0 -translate-x-1/2 -translate-y-1/2 grid place-content-center">
+          <div className="w-11 h-11 rounded-full bg-black border-[6px] border-white "></div>
         </div>
       </div>
     </header>

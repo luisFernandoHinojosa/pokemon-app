@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setTrainerName } from "../store/slices/trainerName.slice";
 import { useNavigate } from "react-router-dom";
-
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -15,18 +14,13 @@ export const Home = () => {
     navigate("/pokedex");
   };
   
-  useEffect(() => {
-    
-  }, [themeMode])
   
   const handleChangeTheme = () =>{
     document.querySelector('html').classList.toggle('dark')
   }
   return (
-    <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-gray-800">
-     <button onClick={handleChangeTheme} className="absolute top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-500 rounded-md px-5 dark:bg-slate-200 text-slate-50 dark:te">Dia
-            <i className="fa-light fa-sun-bright"></i>
-     </button>
+    <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-black">
+      <button onClick={handleChangeTheme} className="absolute">click</button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>
@@ -55,10 +49,8 @@ export const Home = () => {
       <footer>
         <div className="bg-red-600 h-16"></div>
         <div className="bg-black h-12 relative">
-          <div className="h-12 w-12 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-content-center">
-            <div className="w-10 h-10 rounded-full bg-white border-[6px] border-black ">
-
-            </div>
+          <div className="h-14 w-14 bg-black rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 grid place-content-center">
+            <div className="w-11 h-11 rounded-full bg-black border-[5px] border-white "></div>
           </div>
         </div>
       </footer>
