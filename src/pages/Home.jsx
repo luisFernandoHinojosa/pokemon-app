@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setTrainerName } from "../store/slices/trainerName.slice";
 import { useNavigate } from "react-router-dom";
-import {useState } from "react";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -15,12 +14,9 @@ export const Home = () => {
   };
   
   
-  const handleChangeTheme = () =>{
-    document.querySelector('html').classList.toggle('dark')
-  }
+  
   return (
     <main className="h-screen grid grid-rows-[1fr_auto] dark:bg-black">
-      <button onClick={handleChangeTheme} className="absolute">click</button>
       <section className="px-3 h-full grid place-content-center">
         <div className="grid text-center gap-6">
           <div>

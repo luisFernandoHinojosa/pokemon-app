@@ -15,6 +15,8 @@ export const PokemonDetail = () => {
     return `${percentStat}%`;
   };
 
+
+
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
@@ -38,7 +40,7 @@ export const PokemonDetail = () => {
               className="max-w-[250px] mx-auto"
             />
           </div>
-          <article className="bg-white px-11 pb-10 pt-5 dark:bg-slate-400 opacity-80 ">
+          <article className="bg-white px-11 pb-10 pt-5 dark:bg-white dark:text-black opacity-90 ">
             <section className="mb-11 grid gap-6">
               <div className="flex flex-col gap-3">
                 <spam className="w-9 border-2 p-1 mx-auto text-xl font-bold">
