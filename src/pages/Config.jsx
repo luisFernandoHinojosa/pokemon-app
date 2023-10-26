@@ -67,7 +67,7 @@ export const Config = () => {
           </select>
         </div>
 
-        <div className="relative">
+        <div className="relative cursor-pointer">
           <div
             className="rounded-full p-1 border-2 "
             onClick={() => setShowModal(!showModal)}
@@ -82,15 +82,15 @@ export const Config = () => {
           </div>
           {showModal && (
             <div className="absolute mt-1 min-w-[9rem]  p-2 grid gap-2 bg-white border-2 rounded-lg">
-              <div onClick={() => handleThemeChange("dark")} className="flex ">
+              <div onClick={() => handleThemeChange("dark")} className="flex hover:text-red-500 ">
                 <span><IconMoon /></span> 
                 <span>Modo Oscuro</span>
               </div>
-              <div onClick={() => handleThemeChange("light")} className="flex">
+              <div onClick={() => handleThemeChange("light")} className="flex hover:text-red-500">
                 <span><IconSunHigh /></span> 
                 <span>Modo Claro</span>
               </div>
-              <div onClick={() => handleThemeChange("system")} className="flex">
+              <div onClick={() => handleThemeChange("system")} className="flex hover:text-red-500">
                 <span><IconSettings /></span>
                  <span>Sistema</span>
               </div>
