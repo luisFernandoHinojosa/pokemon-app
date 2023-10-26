@@ -8,27 +8,22 @@ import { Config } from "./pages/Config";
 import { DarkModeProvider } from "./utils/DarkModeContext";
 import { useEffect } from "react";
 
-
 function App() {
-  
   useEffect(() => {
-    const recoverMode = localStorage.getItem('darkMode');
-    
-    const htmlElement = document.querySelector('html');
+    const recoverMode = localStorage.getItem("theme");
+
+    const htmlElement = document.querySelector("html");
 
     if (recoverMode !== null) {
-      htmlElement.classList.toggle('dark', recoverMode === 'enabled');
+      htmlElement.classList.add(recoverMode);
     }
+  }, []);
 
-  }, [])
-  
-  
   return (
-   <DarkModeProvider> 
-    <div>
-      
-      <Routes>
-        <Route path="/" element={<Home/>}/>
+    <DarkModeProvider>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/pokedex" element={<Pokedex />} />
             <Route path="/pokedex/:pokemonId" element={<PokemonDetail />} />
@@ -36,7 +31,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-      </DarkModeProvider>
+    </DarkModeProvider>
   );
 }
 

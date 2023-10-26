@@ -46,7 +46,7 @@ export const ButtonsToShow = ({
           />
         )}
       </ul>
-      <span className="text-center font-semibold">
+      <span className="text-center font-semibold dark:text-white">
         <span className="">{currentPage}</span> of{" "}
         <span className="">{pages.length}</span>
       </span>

@@ -1,19 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
 import { setPokemonsPerPage } from "../store/slices/pokemonsPerPage.slice";
-import { useEffect } from "react";
-import { IconSunHigh } from "@tabler/icons-react";
+import { IconSettings, IconSunHigh } from "@tabler/icons-react";
 import { IconMoon } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Config = () => {
-  const dispatch = useDispatch()
-  const pokemonsPerPage = useSelector((store)=>store.pokemonsPerPage)
-  console.log("antes", pokemonsPerPage);
-
-  
-  
-
+  const dispatch = useDispatch();
+  const [theme, setTheme] = useState("light");
+  const [showModal, setShowModal] = useState(false);
 
   const handleChangePage = (e) => {
     const selectedValue = +e.target.value;
@@ -27,26 +22,35 @@ export const Config = () => {
     PokemonsPerPage.push(i);
   }
 
-
-  
-  const handleChangeTheme = () =>{
-    const htmlElement = document.querySelector('html');
-    htmlElement.classList.toggle('dark');
-
-    if (htmlElement.classList.contains("dark")) {
-      localStorage.setItem("darkMode", "enabled");
+  const handleThemeChange = (selectedTheme) => {
+    if (selectedTheme === "dark") {
+      document.querySelector("html").classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else if (selectedTheme === "light") {
+      document.querySelector("html").classList.remove("dark");
+      localStorage.setItem("theme", "light");
     } else {
-      localStorage.setItem("darkMode", "disabled");
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.querySelector("html").classList.add("dark");
+      } else {
+        document.querySelector("html").classList.remove("dark");
+      }
+      localStorage.setItem("theme", "system");
     }
+    setTheme(selectedTheme);
+    setShowModal(false);
   };
 
   useEffect(() => {
-    localStorage.setItem("currentRoute", "/config");
+    const recoverIconTheme = localStorage.getItem("theme");
+    if(recoverIconTheme !== null){
+      setTheme(recoverIconTheme)
+    }
   }, []);
 
   return (
-    <main className="min-h-screen dark:bg-slate-500">
-      <HeaderPokeball/>
+    <main className="min-h-screen dark:bg-slate-600">
+      <HeaderPokeball />
       <div className="flex justify-center mt-11 gap-7 mx-4 flex-col items-center sm:flex-row">
         <div className="flex gap-2">
           <h4 className="font-semibold text-lg">Pokemons per page</h4>
@@ -62,10 +66,37 @@ export const Config = () => {
             ))}
           </select>
         </div>
-        <button onClick={handleChangeTheme} >
-         {isDarkMode?<IconSunHigh className="text-amber-300 hover:text-orange-500" size={50}/> : <IconMoon className="text-slate-700 hover:text-zinc-900"  size={50}/>}
-          </button>
 
+        <div className="relative">
+          <div
+            className="rounded-full p-1 border-2 "
+            onClick={() => setShowModal(!showModal)}
+          >
+            {theme === "dark" ? (
+              <IconMoon size={30}/>
+            ) : theme === "light" ? (
+              <IconSunHigh size={30}/>
+            ) : (
+              <IconSettings size={30}/>
+            )}
+          </div>
+          {showModal && (
+            <div className="absolute mt-1 min-w-[9rem]  p-2 grid gap-2 bg-white border-2 rounded-lg">
+              <div onClick={() => handleThemeChange("dark")} className="flex ">
+                <span><IconMoon /></span> 
+                <span>Modo Oscuro</span>
+              </div>
+              <div onClick={() => handleThemeChange("light")} className="flex">
+                <span><IconSunHigh /></span> 
+                <span>Modo Claro</span>
+              </div>
+              <div onClick={() => handleThemeChange("system")} className="flex">
+                <span><IconSettings /></span>
+                 <span>Sistema</span>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );

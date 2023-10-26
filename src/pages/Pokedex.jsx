@@ -98,7 +98,6 @@ export const Pokedex = () => {
       e.preventDefault();
       setInputValue(suggestions[suggestionIndex].name);
       setPokemonName(suggestions[suggestionIndex]);
-      //setSuggestionIndex(-1);
     }
   };
 
@@ -111,9 +110,9 @@ export const Pokedex = () => {
   return (
     <main className="min-h-screen dark:bg-slate-600">
       <HeaderPokeball />
-      <div className="relative mx-auto h-11 mt-1 border-2 border-slate-700  right-1/2 translate-x-1/2 grid items-center">
+      <div className="relative mx-auto h-11 mt-1 border-2 border-slate-700 dark:border-slate-400 right-1/2 translate-x-1/2 grid items-center">
       <Link
-        className="absolute hover:text-red-500  px-2 py-1 flex font-bold border-l-2 border-r-2 border-red-500 left-2"
+        className="absolute dark:text-white hover:text-red-500   dark:hover:text-red-500 px-2 py-1 flex font-bold border-l-2 border-r-2 border-red-500 left-2 "
         to={"/config"}
       >
         <span>
@@ -132,7 +131,7 @@ export const Pokedex = () => {
         onKeyDown={handleKeySuggestions}>
           <div className="relative flex w-[70%] bg-green-900">
             <input
-              className="w-[75%] outline-none border-2 border-red-500"
+              className="w-[75%] outline-none border-2 border-red-500 capitalize"
               name="pokemonName"
               type="text"
               value={inputValue}
@@ -142,9 +141,9 @@ export const Pokedex = () => {
               onKeyDown={handleClearCharacter}
               ref={input}
             />
-            <button className="w-[25%] px-6 py-2 bg-red-500">Search</button>
+            <button className="w-[25%] px-4 py-2 bg-red-500 truncate">Search</button>
             {suggestions.length > 0 && (
-              <ul className="absolute top-10 bg-[#152b34] text-center w-[75%] font-normal max-h-36 overflow-y-auto text-white font-semibold">
+              <ul className="absolute capitalize top-10 bg-[#152b34] text-center w-[75%]  max-h-36 overflow-y-auto text-white font-semibold">
                 {suggestions.map((suggestion, index) => (
                   <li
                     key={index}
