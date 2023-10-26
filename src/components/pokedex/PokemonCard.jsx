@@ -18,8 +18,10 @@ export const PokemonCard = ({ pokemonUrl }) => {
       to={`/pokedex/${pokemon?.id}`}
       className={`capitalize text-center rounded-lg border-8 ${bgBorderType[pokemon?.types[0].type.name]}`}
     >
-      <header className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}></header>
-      <div className="relative pt-14 bg-w">
+      <header className={`h-[140px] ${bgType[pokemon?.types[0].type.name]}`}>
+
+      </header>
+      <div className="relative pt-14 bg-w dark:text-white">
         <div className="absolute w-full top-0 -translate-y-2/3">
           <img
             className="max-w-[180px] mx-auto block transform scale-100 cursor-pointer hover:scale-95 transition-transform"
@@ -31,11 +33,11 @@ export const PokemonCard = ({ pokemonUrl }) => {
         <span className="font-medium">
           {pokemon?.types.map((type) => type.type.name).join(" / ")}
         </span>
-        <h5 className="text-xs font-semibold text-slate-400 mb-2">Type</h5>
+        <h5 className="text-xs font-semibold dark:text-white mb-2">Type</h5>
         <hr />
         <ul className="grid grid-cols-2 gap-4 p-1">
           {pokemon?.stats.slice(0, 4).map((stat) => (
-            <li key={stat.stat.name} className="font-normal text-slate-400">
+            <li key={stat.stat.name} className="font-normal text-black dark:text-white">
               <h6>{stat.stat.name}</h6>
               <span className={`font-bold text-lg ${textColorType[pokemon?.types[0].type.name]}`}>{stat.base_stat}</span>
             </li>

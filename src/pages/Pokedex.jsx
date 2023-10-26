@@ -65,14 +65,14 @@ export const Pokedex = () => {
   };
 
   return (
-    <main className="min-h-screen dark:bg-black">
+    <main className="min-h-screen dark:bg-gray-800">
       <HeaderPokeball/>
       <Link className="hover:text-red-500 absolute px-2 py-1 flex font-bold border-2 left-2 translate-y-[20%] rounded-xl  " to={"/config"}>
       <span><IconSettings/></span>
       <span>Settings</span>
         </Link>
-      <section className="grid mx-auto mb-9  px-4 gap-5 mt-16 md:max-w-[610px] lg:max-w-[900px] xl:max-w-[1200px] text-">
-        <p className="text-lg">
+      <section className="grid items-center md:w-[600px] lg:w-[1200px] mx-auto mb-16 gap-5 px-2 mt-11">
+        <p className="text-lg dark:text-white">
           <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
           pokemon
         </p>
