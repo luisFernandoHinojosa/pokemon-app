@@ -109,7 +109,7 @@ export const Pokedex = () => {
   }, [suggestionIndex]);
 
   return (
-    <main className="min-h-screen dark:bg-gray-800">
+    <main className="min-h-screen dark:bg-slate-600">
       <HeaderPokeball />
       <div className="relative mx-auto h-11 mt-1 border-2 border-slate-700  right-1/2 translate-x-1/2 grid items-center">
       <Link
@@ -124,9 +124,8 @@ export const Pokedex = () => {
       </div>
       <section className="grid mx-auto mb-9  px-4 gap-5 mt-5 md:max-w-[610px] lg:max-w-[900px] xl:max-w-[1200px] text-">
         <p className="text-lg dark:text-white">
-          <span className="text-red-500 font-bold">Welcome</span>{" "}
-          <span className="text-blue-500 font-bold">{trainerName},</span>here
-          can you find your favorite pokemon
+          <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
+          pokemon
         </p>
 
         <form onSubmit={handleSubmit} className="flex gap-3"

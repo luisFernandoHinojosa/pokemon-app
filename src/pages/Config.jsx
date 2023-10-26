@@ -2,8 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { HeaderPokeball } from "../components/layouts/HeaderPokeball";
 import { setPokemonsPerPage } from "../store/slices/pokemonsPerPage.slice";
 import { useEffect } from "react";
+import { IconSunHigh } from "@tabler/icons-react";
+import { IconMoon } from "@tabler/icons-react";
+import { useState } from "react";
+
 export const Config = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const pokemonsPerPage = useSelector((store)=>store.pokemonsPerPage)
+  console.log("antes", pokemonsPerPage);
+
+  
+  
+
 
   const handleChangePage = (e) => {
     const selectedValue = +e.target.value;
@@ -17,9 +27,11 @@ export const Config = () => {
     PokemonsPerPage.push(i);
   }
 
-  const handleChangeTheme = () => {
-    const htmlElement = document.querySelector("html");
-    htmlElement.classList.toggle("dark");
+
+  
+  const handleChangeTheme = () =>{
+    const htmlElement = document.querySelector('html');
+    htmlElement.classList.toggle('dark');
 
     if (htmlElement.classList.contains("dark")) {
       localStorage.setItem("darkMode", "enabled");
@@ -34,7 +46,7 @@ export const Config = () => {
 
   return (
     <main className="min-h-screen dark:bg-slate-500">
-      <HeaderPokeball />
+      <HeaderPokeball/>
       <div className="flex justify-center mt-11 gap-7 mx-4 flex-col items-center sm:flex-row">
         <div className="flex gap-2">
           <h4 className="font-semibold text-lg">Pokemons per page</h4>
@@ -50,7 +62,10 @@ export const Config = () => {
             ))}
           </select>
         </div>
-        <button onClick={handleChangeTheme}>modo oscuro</button>
+        <button onClick={handleChangeTheme} >
+         {isDarkMode?<IconSunHigh className="text-amber-300 hover:text-orange-500" size={50}/> : <IconMoon className="text-slate-700 hover:text-zinc-900"  size={50}/>}
+          </button>
+
       </div>
     </main>
   );
