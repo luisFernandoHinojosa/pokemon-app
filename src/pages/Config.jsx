@@ -40,7 +40,7 @@ export const Config = () => {
   }
 
   return (
-    <main className="dark:bg-slate-500">
+    <main className="min-h-screen dark:bg-slate-500">
       <HeaderPokeball/>
       <div className="flex justify-center mt-11 gap-7 mx-4 flex-col items-center sm:flex-row">
         <div className="flex gap-2">
