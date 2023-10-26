@@ -10,7 +10,7 @@ function App() {
   
   
   return (
-    <div>
+    
        
       <Routes>
         
@@ -22,7 +22,7 @@ function App() {
             <Route path="/config" element={<Config />} />
           </Route>
         </Routes>
-      </div>
+     
   );
 }
 
