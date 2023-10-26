@@ -7,7 +7,6 @@ import { bgType, bgBorderType, textColorType } from "../constants/pokemons";
 export const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState(null);
   const { pokemonId } = useParams();
-  console.log("pokemons", pokemon);
 
   const getPokemonStat = (statValue) => {
     const MAX_STAAT_VALUE = 255;
@@ -23,6 +22,10 @@ export const PokemonDetail = () => {
       .then(({ data }) => setPokemon(data))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(()=>{
+    localStorage.setItem("currentRoute", "/pokedex/:pokemonId")
+  },[])
   return (
     <main className="capitalize grid gap-20 dark:bg-gray-800 dark:text-white">
       <HeaderPokeball />
@@ -43,7 +46,7 @@ export const PokemonDetail = () => {
           <article className="bg-white px-11 pb-10 pt-5 dark:bg-white dark:text-black opacity-90 ">
             <section className="mb-11 grid gap-6">
               <div className="flex flex-col gap-3">
-                <spam className="w-9 border-2 p-1 mx-auto text-xl font-bold">
+                <spam className="w-auto border-2 p-1 mx-auto text-xl font-bold">
                   #{pokemon?.id}
                 </spam>
                 <h2 className="text-[2rem] font-bold text-green-800">
@@ -112,7 +115,7 @@ export const PokemonDetail = () => {
                     <div className="bg-slate-300 h-6 rounded-md overflow-hidden">
                       <div
                         style={{ width: getPokemonStat(stat.base_stat) }}
-                        className="bg-gradient-to-l to-orange-300 from-orange-500 h-full rounded-md"
+                        className="bg-gradient-to-l to-orange-400 from-orange-700 h-full rounded-md"
                       ></div>
                     </div>
                   </li>
@@ -122,7 +125,7 @@ export const PokemonDetail = () => {
           </article>
         </article>
 
-        <div className="max-w-[700px] mx-auto rounded-lg px-7 py-5 mb-10 border-4 border-slate-200">
+        <div className={`max-w-[700px] mx-auto rounded-lg px-7 py-5 mb-10 border-4 grid gap-2 ${bgBorderType[pokemon?.types[0].type.name]}`}>
           <h4 className="text-4xl pb-3">Movements</h4>
           <hr />
           <ul className="flex  flex-row flex-wrap   gap-6 p-3">

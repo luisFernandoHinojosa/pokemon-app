@@ -24,7 +24,7 @@ export const ButtonsToShow = ({
           return (
             <li key={index}>
               <button
-                className={`text-blasck font-semibold p-2 px-4 ${
+                className={`border-2 border-red-700 text-blasck font-semibold p-2 px-4 ${
                   page === currentPage
                     ? "bg-red-400"
                     : "bg-white hover:bg-slate-300 "

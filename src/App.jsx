@@ -8,16 +8,18 @@ import { Config } from "./pages/Config";
 import { DarkModeProvider } from "./utils/DarkModeContext";
 
 function App() {
+
   return (
     <DarkModeProvider>
       <div>
+      
         <Routes>
+        <Route path="/" element={<Home/>}/>
           <Route element={<PrivateRoutes />}>
             <Route path="/pokedex" element={<Pokedex />} />
             <Route path="/pokedex/:pokemonId" element={<PokemonDetail />} />
             <Route path="/config" element={<Config />} />
           </Route>
-          <Route path="/" element={<Home/>}/>
         </Routes>
       </div>
     </DarkModeProvider>

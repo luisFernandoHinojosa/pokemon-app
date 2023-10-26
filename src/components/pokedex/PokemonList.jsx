@@ -5,7 +5,6 @@ import { ButtonsToShow } from "../../utils/ButtonsToShow";
 import { useSelector } from "react-redux";
 
 export const PokemonList = ({ pokemons}) => {
-  console.log("pokemons", pokemons);
   const [currentPage, setCurrentPage] = useState(1);
   const pokemonsPerPage = useSelector((store)=>store.pokemonsPerPage)
 
