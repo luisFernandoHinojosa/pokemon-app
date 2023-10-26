@@ -65,7 +65,7 @@ export const Pokedex = () => {
   };
 
   return (
-    <main className="min-h-screen dark:bg-gray-800">
+    <main className="min-h-screen dark:bg-slate-600">
       <HeaderPokeball/>
       <Link className="hover:text-red-500 absolute px-2 py-1 flex font-bold border-2 left-2 translate-y-[20%] rounded-xl  " to={"/config"}>
       <span><IconSettings/></span>
@@ -73,7 +73,9 @@ export const Pokedex = () => {
         </Link>
         <section className="grid mx-auto mb-9  px-4 gap-5 mt-16 md:max-w-[610px] lg:max-w-[900px] xl:max-w-[1200px] text-">
         <p className="text-lg dark:text-white">
-          <span className="text-red-500 font-bold">Welcome</span> <span className="text-blue-500 font-bold">{trainerName},</span>here can you find your favorite
+          <span className="text-red-500 font-bold">Welcome</span> 
+          <span className="text-blue-500 font-bold">{trainerName},
+          </span>here can you find your favorite
           pokemon
         </p>
 
