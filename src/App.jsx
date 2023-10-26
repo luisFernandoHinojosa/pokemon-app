@@ -5,14 +5,14 @@ import { Pokedex } from "./pages/Pokedex";
 import { PokemonDetail } from "./pages/PokemonDetail";
 import { PrivateRoutes } from "./components/PrivateRoutes";
 import { Config } from "./pages/Config";
-//import { DarkModeProvider } from "./utils/DarkModeContext";
+import { DarkModeProvider } from "./utils/DarkModeContext";
 
 function App() {
   
   
   return (
 
- //  <DarkModeProvider> 
+   <DarkModeProvider> 
     <div>
        
       <Routes>
@@ -26,7 +26,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-      //</DarkModeProvider>
+      </DarkModeProvider>
   );
 }
 
